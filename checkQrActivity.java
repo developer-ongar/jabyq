@@ -185,3 +185,22 @@ public class CheckQrActivity extends AppCompatActivity implements Animation.Anim
         phone_number.append(phoneNumberS);
         iin.append(iinS);
     }
+    
+    @Override
+    public void onAnimationStart(Animation animation) {
+
+    }
+
+    @Override
+    public void onAnimationEnd(Animation animation) {
+        if (animation == anim) {
+
+        }
+    }
+
+    @Override
+    public void onAnimationRepeat(Animation animation) {
+
+    }
+}
+
