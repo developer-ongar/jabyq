@@ -175,3 +175,13 @@ public class CheckQrActivity extends AppCompatActivity implements Animation.Anim
 
         expiry_time.setText(timeLeftText);
     }
+    
+    public void loadData() {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+
+        phoneNumberS = sharedPreferences.getString(PHONE_NUMBER, "+71234567890");
+        iinS = sharedPreferences.getString(IIN, "020000000000");
+
+        phone_number.append(phoneNumberS);
+        iin.append(iinS);
+    }
