@@ -63,3 +63,14 @@ public class LoginActivity extends AppCompatActivity {
 
         editor.apply();
     }
+    
+    public void loadData() {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+
+        phoneNumberS = sharedPreferences.getString(PHONE_NUMBER, "");
+        iinS = sharedPreferences.getString(IIN, "");
+
+        edit_phone.append(phoneNumberS);
+        enter_iin.append(iinS);
+    }
+}
