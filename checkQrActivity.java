@@ -143,3 +143,35 @@ public class CheckQrActivity extends AppCompatActivity implements Animation.Anim
             startTimer();
         }
     }
+    
+    public void startTimer() {
+        countDownTimer = new CountDownTimer(timeLeft, 1) {
+            @Override
+            public void onTick(long l) {
+                timeLeft = l;
+                updateTimer();
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        }.start();
+
+        timerRunning = true;
+    }
+
+    public void stopTimer() {
+        countDownTimer.cancel();
+        timerRunning = false;
+    }
+
+    public void updateTimer() {
+        int minute = (int) timeLeft / 60000;
+        int second = (int) timeLeft % 60000 / 1000;
+        int millisecond = (int) timeLeft % 1000;
+
+        String timeLeftText = (String.format("%02d", minute) + ":" + String.format("%02d", second) + ":" + String.format("%03d", millisecond));
+
+        expiry_time.setText(timeLeftText);
+    }
