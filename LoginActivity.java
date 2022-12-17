@@ -21,3 +21,16 @@ public class LoginActivity extends AppCompatActivity {
     public static final String IIN = "iiN";
 
     private String phoneNumberS, iinS;
+    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+
+
+        edit_phone = findViewById(R.id.edit_phone);
+        enter_iin = findViewById(R.id.enter_iin);
+        checkBox = findViewById(R.id.cb_policy);
+
+        loadData();
+    }
