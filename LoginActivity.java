@@ -53,3 +53,13 @@ public class LoginActivity extends AppCompatActivity {
         }
 
     }
+    
+    public void saveData() {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString(PHONE_NUMBER, edit_phone.getText().toString());
+        editor.putString(IIN, enter_iin.getText().toString());
+
+        editor.apply();
+    }
