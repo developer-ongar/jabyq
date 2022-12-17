@@ -126,3 +126,20 @@ public class CheckQrActivity extends AppCompatActivity implements Animation.Anim
                     }
                 }
         );
+        
+        // Add JsonArrayRequest to the RequestQueue
+        requestQueue.add(jsonObjectRequest);
+    }
+
+    public void closePass(View view) {
+        finish();
+    }
+
+    public void startStop() {
+        if (timerRunning) {
+            stopTimer();
+        }
+        else {
+            startTimer();
+        }
+    }
