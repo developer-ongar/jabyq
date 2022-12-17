@@ -34,3 +34,22 @@ public class LoginActivity extends AppCompatActivity {
 
         loadData();
     }
+    
+    public void startQrActivityTest(View view){
+        if (edit_phone.getText().length() != 12 & enter_iin.getText().length() != 12){
+            Toast.makeText(getApplicationContext(), "Неправильный ИИН или номер телефона", Toast.LENGTH_SHORT).show();
+        }
+        else if (!checkBox.isChecked()) {
+            Toast.makeText(getApplicationContext(), "Примите условия работы", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            //VariablesForApplication.setPhoneNumber(edit_phone.getText().toString());
+            //VariablesForApplication.setIin(enter_iin.getText().toString());
+
+            saveData();
+
+            Intent intent = new Intent(this, QrReaderActivity.class);
+            startActivity(intent);
+        }
+
+    }
