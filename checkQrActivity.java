@@ -86,3 +86,43 @@ public class CheckQrActivity extends AppCompatActivity implements Animation.Anim
         anim = AnimationUtils.loadAnimation(getApplicationContext(),
                 R.anim.animations);
         anim.setAnimationListener(this);
+        
+        RequestQueue requestQueue = Volley.newRequestQueue(mContext);
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.GET,
+                mJSONURLString,
+                null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try{
+                            JSONObject object = response.getJSONObject("obj");
+
+                            String name = object.getString("name");
+
+                            entry_place.append(name);
+                            entrynum1.append(entry);
+                            biin1.append(biin);
+                            scan_time.append(currentDate);
+
+                            loadData();
+
+                            card.startAnimation(anim);
+                            status_display.startAnimation(anim);
+                            image_info.startAnimation(anim);
+
+
+                            startStop();
+                        }catch (JSONException e){
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError error){
+                        // Put something here (maybe Toast message)
+                    }
+                }
+        );
