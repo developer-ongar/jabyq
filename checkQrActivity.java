@@ -54,3 +54,21 @@ public class CheckQrActivity extends AppCompatActivity implements Animation.Anim
     public static final String P
       HONE_NUMBER = "phoneNumber";
     public static final String IIN = "iiN";
+    
+    
+        @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_check_qr);
+
+        mContext = getApplicationContext();
+        entry_place = findViewById(R.id.entry_place);
+        biin1 = findViewById(R.id.biin1);
+        entrynum1 = findViewById(R.id.entrynum1);
+        scan_time = findViewById(R.id.scan_time);
+        expiry_time = findViewById(R.id.expiry_time);
+        phone_number = findViewById(R.id.phone_number);
+        iin = findViewById(R.id.iin);
+        card = findViewById(R.id.card);
+        status_display = findViewById(R.id.status_display);
+        image_info = findViewById(R.id.image_info); 
