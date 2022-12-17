@@ -34,3 +34,23 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
+
+public class CheckQrActivity extends AppCompatActivity implements Animation.AnimationListener {
+
+    private String mJSONURLString = "https://stat.gov.kz/api/juridical/counter/api/?bin=";
+    private String phoneNumberS, iinS;
+    //150940005230 &lang=ru
+
+    private TextView entry_place, biin1, entrynum1, scan_time, expiry_time, phone_number, iin, status_display;
+    private Context mContext;
+    private CountDownTimer countDownTimer;
+    private long timeLeft = 300000; // 5 минут
+    private boolean timerRunning;
+    private Animation anim;
+    private CardView card;
+    private ImageView image_info;
+
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String P
+      HONE_NUMBER = "phoneNumber";
+    public static final String IIN = "iiN";
