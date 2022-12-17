@@ -72,3 +72,17 @@ public class CheckQrActivity extends AppCompatActivity implements Animation.Anim
         card = findViewById(R.id.card);
         status_display = findViewById(R.id.status_display);
         image_info = findViewById(R.id.image_info); 
+        
+        
+        String currentDate = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss", Locale.getDefault()).format(new Date());
+
+
+        Intent intent = getIntent();
+        String biin = intent.getStringExtra("intentData").substring(56, 68);
+        String enter = intent.getStringExtra("intentData").substring(71);
+        String entry = enter.substring(0, enter.indexOf('&'));
+
+        mJSONURLString = mJSONURLString + biin + "&lang=ru";
+        anim = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.animations);
+        anim.setAnimationListener(this);
